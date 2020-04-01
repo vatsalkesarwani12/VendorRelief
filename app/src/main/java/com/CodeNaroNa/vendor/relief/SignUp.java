@@ -1,18 +1,37 @@
 package com.CodeNaroNa.vendor.relief;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class SignUp extends AppCompatActivity {
 
@@ -22,6 +41,10 @@ public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private MaterialCardView fabpop;
+    private String codeSent;
+    private Map<String ,Object> dd;
+    private RadioGroup userselected;
+    private RadioButton selection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,21 +63,99 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkDetail1())
-                fabpop.setVisibility(View.VISIBLE);
-            }
-        });
-        verify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkDetail2())
-                fabpop.setVisibility(View.GONE);
-            }
-        });
+
+        FirebaseUser user=mAuth.getCurrentUser();
+        if (user!=null)
+        {
+            startActivity(new Intent(getApplicationContext(),VendorActivity.class));
+        }
+        else {
+            gen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (checkDetail1()) {
+                        fabpop.setVisibility(View.VISIBLE);
+                        verifyPhoneNumber();
+                    }
+                }
+            });
+
+
+            verify.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (checkDetail2()) {
+                        verifySignInCode();
+                        fabpop.setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
     }
+
+    private void verifySignInCode() {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, otp.getText().toString());
+        signInWithPhoneAuthCredential(credential);
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //Toast.makeText(SignUp.this, "Sign In Successful", Toast.LENGTH_SHORT).show();
+                            int selectedId = userselected.getCheckedRadioButtonId();
+                            selection = (RadioButton) findViewById(selectedId);
+                            Toast.makeText(getApplicationContext(),selection.getText().toString(),Toast.LENGTH_SHORT).show();
+                            if (selection.getText().toString().equals("New User")) {
+                                dd.put("Phone Number", mAuth.getCurrentUser().getPhoneNumber().toString());
+                                db.collection("Vendor")
+                                        .document("" + mAuth.getCurrentUser().getPhoneNumber())
+                                        .set(dd)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isComplete()) {
+                                                    startActivity(new Intent(getApplicationContext(), VendorActivity.class));
+                                                }
+                                            }
+                                        });
+                            }
+                            else
+                                if (selection.getText().toString().equals("Existing User")){
+                                    startActivity(new Intent(getApplicationContext(), VendorActivity.class));
+                                }
+                        }
+                        else {
+                            Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void verifyPhoneNumber() {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phone.getText().toString(),60,TimeUnit.SECONDS,this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        Toast.makeText(SignUp.this, "Enter OTP", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(SignUp.this, "Cannot create Account "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("Error",e.getMessage());
+                    }
+                    @Override
+                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        super.onCodeSent(s, forceResendingToken);
+                        Log.v("Success1",s);
+                        codeSent=s;
+                    }
+                });
+    }
+
 
     private void intialiseView() {
         phone=findViewById(R.id.phone);
@@ -64,9 +165,12 @@ public class SignUp extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
         fabpop=findViewById(R.id.fabpop);
+        db=FirebaseFirestore.getInstance();
+        userselected=findViewById(R.id.userSelected);
+        dd=new HashMap<>();
     }
     private Boolean checkDetail1(){
-        if (phone.getText().toString().isEmpty())
+        if (phone.getText().toString().isEmpty() || phone.getText().toString().length()<10)
         {
             phone.setError("Field can't be Empty");
             return false;
@@ -77,6 +181,12 @@ public class SignUp extends AppCompatActivity {
         if(otp.getText().toString().isEmpty())
         {
             otp.setError("Field can't be Empty");
+            return false;
+        }
+        if (userselected.getCheckedRadioButtonId()!=R.id.newUser && userselected.getCheckedRadioButtonId()!=R.id.ExistingUser)
+        {
+            gen.setError("");
+            Toast.makeText(this, "Select user", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

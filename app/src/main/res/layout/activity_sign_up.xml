@@ -7,6 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="200dp">
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/userSelected"
+        android:gravity="center">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User"
+            android:id="@+id/newUser"
+            android:padding="5dp"
+            />
+
+        <RadioButton
+            android:id="@+id/ExistingUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Existing User"
+            android:padding="5dp" />
+
+    </RadioGroup>
+
+    </LinearLayout>
+
     <com.google.android.material.card.MaterialCardView
     android:id="@+id/fabpop"
     android:visibility="gone"
@@ -78,7 +114,9 @@
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:maxLength="13"
             android:singleLine="true"
             android:textSize="16dp" />
 
@@ -94,6 +132,8 @@
         android:id="@+id/genOtp"
         android:layout_below="@+id/lin"
         android:layout_centerHorizontal="true" />
+
+
 
 
 </RelativeLayout>
