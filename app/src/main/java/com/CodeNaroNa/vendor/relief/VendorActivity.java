@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,25 +18,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class VendorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private Button signOut,saveData;
+    private Button signOut,saveData,showData;
     private TextInputEditText shopName,address;
     private Spinner shopCat,state,city,open,openampm,close,closeampm;
-    private String ssshopCat=null,ssState=null,ssCity=null,ssopen=null,ssopenampm=null,ssclose=null,sscloseampm=null;
+    private String ssshopCat=null,ssState=null,ssCity=null,ssopen=null,ssopenampm=null,ssclose=null,sscloseampm=null,sscity=null,ssstate=null;
     private String[] shopcatt={"Shop Category","Grocery","Dairy","Medicine","Others"};
     private String[] time={"Select","1","2","3","4","5","6","7","8","9","10","11","12"};
     private String[] ampm={"Select","AM","PM"};
-    private ArrayAdapter<String> spct,tm,am;
-    private ArrayAdapter<State> st;
-    private ArrayAdapter<City> ct;
+    private ArrayList<String> cc,ss;
+    private ArrayAdapter<String> spct,tm,am,ssss,cccc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,19 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                 }
             }
         });
+        showData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),VendorData.class));
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+        finish();
     }
 
     private void storeVendorDetail() {
@@ -71,8 +89,8 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         Map<String,Object> vendorData=new HashMap<>();
         vendorData.put("Shop Name",shopName.getText().toString());
         vendorData.put("Shop Category",ssshopCat);
-        vendorData.put("State","state");
-        vendorData.put("City","city");
+        vendorData.put("State",ssstate);
+        vendorData.put("City",sscity);
         vendorData.put("Address",address.getText().toString());
         vendorData.put("Opening Time",ssopen+" "+ssopenampm);
         vendorData.put("Closing Time",ssclose+" "+sscloseampm);
@@ -102,6 +120,62 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
             return false;
         }
         else {
+            saveData.setError(null);
+        }
+        if (ssstate==null)
+        {
+            saveData.setError("Select State");
+            return false;
+        }
+        else
+        {
+            saveData.setError(null);
+            db.collection("State-City")
+                    .document(ssstate)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                            if (task.isSuccessful()) {
+                                Map<String, Object> map = task.getResult().getData();
+                                cc.clear();
+                                cc.add("City");
+                                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                    cc.add(entry.getKey());
+                                    Log.d("Sucess3", entry.getKey());
+                                }
+                            }
+
+                        }
+                    });
+        }
+        if (sscity==null)
+        {
+            saveData.setError("Select City");
+            db.collection("State-City")
+                    .document(ssstate)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                            if (task.isSuccessful()) {
+                                cc.clear();
+                                cc.add("City");
+                                Map<String, Object> map = task.getResult().getData();
+                                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                    cc.add(entry.getKey());
+                                    Log.d("Sucess3", entry.getKey());
+                                }
+                            }
+
+                        }
+                    });
+            return false;
+        }
+        else
+        {
             saveData.setError(null);
         }
         if(ssopen == null)
@@ -162,20 +236,47 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         closeampm.setOnItemSelectedListener(this);
         close.setOnItemSelectedListener(this);
 
+
+        cc=new ArrayList<>();
+        cc.add("City");
+        ss=new ArrayList<>();
+        ss.add("State");
+
+        db.collection("State-City")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                //Log.d("Sucess2", document.getId() + " => " + document.getData());
+                                ss.add(document.getId());
+                            }
+                        } else {
+                            Log.d("Fail", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
         spct=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,shopcatt);
         tm=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,time);
         am=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,ampm);
+        ssss=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,ss);
+        cccc=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,cc);
 
         shopCat.setAdapter(spct);
         open.setAdapter(tm);
         openampm.setAdapter(am);
         close.setAdapter(tm);
         closeampm.setAdapter(am);
-
+        state.setAdapter(ssss);
+        city.setAdapter(cccc);
     }
 
     private void intialiseViews() {
         mAuth=FirebaseAuth.getInstance();
+        showData=findViewById(R.id.showData);
         db= FirebaseFirestore.getInstance();
         signOut=findViewById(R.id.signOut);
         saveData=findViewById(R.id.save);
@@ -221,6 +322,41 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
             case R.id.closeampm:
                 if (!parent.getItemAtPosition(position).equals("Select")){
                     sscloseampm=ampm[position];
+                }
+                return;
+
+            case R.id.state:
+                if (!parent.getItemAtPosition(position).equals("State"))
+                {
+                    ssstate=ss.get(position);
+
+                    db.collection("State-City")
+                            .document(ssstate)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                                    if (task.isSuccessful()) {
+                                        cc.clear();
+                                        cc.add("City");
+                                        Map<String, Object> map = task.getResult().getData();
+                                        for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                            cc.add(entry.getKey());
+                                            Log.d("Sucess3", entry.getKey());
+                                        }
+                                    }
+
+                                }
+                            });
+
+                }
+                return;
+
+            case R.id.city:
+                if (!parent.getItemAtPosition(position).equals("City"))
+                {
+                    sscity=cc.get(position);
                 }
                 return;
 
