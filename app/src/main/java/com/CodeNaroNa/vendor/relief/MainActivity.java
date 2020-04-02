@@ -27,6 +27,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String City=null,State=null;
     private RecyclerView mrecyclerView;
     private UserAdapter mAdapter;
-    private Button Get;
+    private Button Get,pre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),SignUp.class));
+            }
+        });
+        pre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Precaution.class));
             }
         });
     }
@@ -161,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     ccc.add(entry.getKey());
                                     Log.d("Sucess4", entry.getKey());
                                 }
+                                Collections.sort(ccc);
                             }
 
                         }
@@ -178,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mAuth=FirebaseAuth.getInstance();
         mrecyclerView=findViewById(R.id.recycle);
         sign=findViewById(R.id.sign);
+        pre=findViewById(R.id.pre);
 
         city.setOnItemSelectedListener(this);
         state.setOnItemSelectedListener(this);
@@ -197,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 //Log.d("Sucess2", document.getId() + " => " + document.getData());
                                 sss.add(document.getId());
                             }
+                            Collections.sort(sss);
                         } else {
                             Log.d("Fail", "Error getting documents: ", task.getException());
                         }
@@ -236,6 +247,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                             ccc.add(entry.getKey());
                                             Log.d("Sucess3", entry.getKey());
                                         }
+                                        Collections.sort(ccc);
                                     }
 
                                 }

@@ -24,6 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,6 +146,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                     cc.add(entry.getKey());
                                     Log.d("Sucess3", entry.getKey());
                                 }
+                                Collections.sort(cc);
                             }
 
                         }
@@ -168,6 +170,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                     cc.add(entry.getKey());
                                     Log.d("Sucess3", entry.getKey());
                                 }
+                                Collections.sort(cc);
                             }
 
                         }
@@ -252,6 +255,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                 //Log.d("Sucess2", document.getId() + " => " + document.getData());
                                 ss.add(document.getId());
                             }
+                            Collections.sort(ss);
                         } else {
                             Log.d("Fail", "Error getting documents: ", task.getException());
                         }
@@ -345,6 +349,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                             cc.add(entry.getKey());
                                             Log.d("Sucess3", entry.getKey());
                                         }
+                                        Collections.sort(cc);
                                     }
 
                                 }

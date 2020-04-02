@@ -56,6 +56,11 @@ public class SignUp extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        if (fabpop.getVisibility()==View.VISIBLE)
+        {
+            fabpop.setVisibility(View.GONE);
+        }
+        else
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
 
@@ -108,7 +113,14 @@ public class SignUp extends AppCompatActivity {
                             selection = (RadioButton) findViewById(selectedId);
                             Toast.makeText(getApplicationContext(),selection.getText().toString(),Toast.LENGTH_SHORT).show();
                             if (selection.getText().toString().equals("New User")) {
-                                dd.put("Phone Number", mAuth.getCurrentUser().getPhoneNumber().toString());
+                                dd.put("Phone Number",mAuth.getCurrentUser().getPhoneNumber());
+                                dd.put("Shop Name","");
+                                dd.put("Shop Category","");
+                                dd.put("State","");
+                                dd.put("City","");
+                                dd.put("Address","");
+                                dd.put("Opening Time","");
+                                dd.put("Closing Time","");
                                 db.collection("Vendor")
                                         .document("" + mAuth.getCurrentUser().getPhoneNumber())
                                         .set(dd)
@@ -169,7 +181,7 @@ public class SignUp extends AppCompatActivity {
         dd=new HashMap<>();
     }
     private Boolean checkDetail1(){
-        if (phone.getText().toString().isEmpty() || phone.getText().toString().length()<10)
+        if (phone.getText().toString().length()!=13)
         {
             phone.setError("Field can't be Empty");
             return false;

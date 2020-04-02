@@ -107,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
+        app:boxStrokeColor="@android:color/black"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -116,6 +117,7 @@
             android:importantForAutofill="no"
             android:inputType="phone"
             android:maxLength="13"
+            android:hint="Enter 13 digit Number (+91xxxxxxxxxx)"
             android:singleLine="true"
             android:textSize="16dp" />
 

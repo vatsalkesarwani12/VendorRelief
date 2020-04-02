@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="Shop Name"
-                android:layout_marginRight="52dp"
+                android:layout_marginRight="50dp"
                 android:textSize="20dp"
                 android:textColor="@android:color/black"/>
 
@@ -167,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:text="Shop Address"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="33dp"
+                android:layout_marginRight="31dp"
                 android:textSize="20dp"
                 android:textColor="@android:color/black"/>
 
