@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:layout_margin="2dp">
+    android:layout_marginBottom="1dp">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        android:elevation="20dp"
+        app:cardCornerRadius="5dp"
+        android:elevation="10dp"
         android:padding="1dp"
-        android:layout_margin="1dp"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="1dp"
         android:background="@android:color/darker_gray">
 
         <LinearLayout
@@ -38,7 +39,7 @@
             android:visibility="gone"
             android:text="Answer"
             android:layout_below="@+id/viewa"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:id="@+id/answer"
             android:layout_gravity="center"/>
 

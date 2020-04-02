@@ -5,9 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Precaution">
+    tools:context=".Precaution"
+    style="@style/Theme.AppCompat.Light.NoActionBar"
+    android:background="#f8f8f8">
+
+    <include
+        android:id="@+id/lay"
+        layout="@layout/titlebar2"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/precRecycle"

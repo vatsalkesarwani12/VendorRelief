@@ -106,7 +106,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone Number"
         app:boxStrokeColor="@android:color/black"
         app:errorEnabled="true">
 
@@ -131,6 +130,7 @@
         android:layout_height="wrap_content"
         android:hint="Generate Otp"
         android:id="@+id/genOtp"
+        android:textColorHint="@android:color/white"
         android:layout_below="@+id/lin"
         android:layout_centerHorizontal="true" />
 

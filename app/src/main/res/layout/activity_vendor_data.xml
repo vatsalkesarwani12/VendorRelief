@@ -5,9 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorData">
+    tools:context=".VendorData"
+    android:background="#ffffff">
+
+    <include
+        android:id="@+id/lay1"
+        layout="@layout/titlebar2"/>
 
     <LinearLayout
+        android:layout_below="@+id/lay1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -70,6 +76,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/lay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/lin"

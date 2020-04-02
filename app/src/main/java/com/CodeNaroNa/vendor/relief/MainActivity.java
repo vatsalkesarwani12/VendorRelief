@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -34,7 +36,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth mAuth;
-    private TextView sign;
+    private ImageView sign;
     private Spinner city ,state;
     private FirebaseFirestore db;
     private ArrayAdapter<String> cc,ss;
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String City=null,State=null;
     private RecyclerView mrecyclerView;
     private UserAdapter mAdapter;
-    private Button Get,pre;
+    private Button Get;
+    private ImageView pre,vendor,spreaddata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Precaution.class));
+            }
+        });
+        vendor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getApplicationContext()!=MainActivity.this)
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
+        spreaddata.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),CoronaSpreadData.class));
             }
         });
     }
@@ -107,13 +123,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         {
                             for (QueryDocumentSnapshot document :task.getResult())
                             {
+                                Log.d("Sucess10",document.getData().toString());
                                 data.add(new UserData(document.getData().get("Shop Category").toString(),
                                         document.getData().get("Shop Name").toString(),
                                         document.getData().get("Opening Time").toString(),
                                         document.getData().get("Closing Time").toString(),
                                         document.getData().get("Phone Number").toString()));
+
                                 mAdapter.notifyDataSetChanged();
                             }
+                            mAdapter.notifyDataSetChanged();
                             if (task.getResult().size() == 0)
                                 Toast.makeText(MainActivity.this, "No Vendor Found", Toast.LENGTH_SHORT).show();
                         } else {
@@ -188,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mrecyclerView=findViewById(R.id.recycle);
         sign=findViewById(R.id.sign);
         pre=findViewById(R.id.pre);
+        spreaddata=findViewById(R.id.data);
+        vendor=findViewById(R.id.vendor);
+
 
         city.setOnItemSelectedListener(this);
         state.setOnItemSelectedListener(this);

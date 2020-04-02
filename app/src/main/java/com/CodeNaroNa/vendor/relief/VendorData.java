@@ -36,9 +36,9 @@ public class VendorData extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser user=mAuth.getCurrentUser();
+        /*FirebaseUser user=mAuth.getCurrentUser();
         if (user!=null)
-        id=user.getPhoneNumber();
+        id=user.getPhoneNumber();*/
 
         db.collection("Vendor")
                 .document(id)
@@ -49,6 +49,7 @@ public class VendorData extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             DocumentSnapshot data=task.getResult();
+                            if (data.exists()){
                             state.setText(data.getData().get("State").toString());
                             city.setText(data.getData().get("City").toString());
                             phone.setText(data.getData().get("Phone Number").toString());
@@ -56,7 +57,7 @@ public class VendorData extends AppCompatActivity {
                             ot.setText(data.getData().get("Opening Time").toString());
                             ct.setText(data.getData().get("Closing Time").toString());
                             name.setText(data.getData().get("Shop Name").toString());
-                            add.setText(data.getData().get("Address").toString());
+                            add.setText(data.getData().get("Address").toString());}
                         }
                     }
                 });

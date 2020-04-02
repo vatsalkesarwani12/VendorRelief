@@ -7,21 +7,13 @@
     tools:context=".VendorActivity">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="My Data"
-        android:id="@+id/showData"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"/>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:padding="5dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp">
 
@@ -144,19 +136,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Save Data"
+            android:textColorHint="@android:color/white"
             android:id="@+id/save"
             android:layout_gravity="center" />
 
     </LinearLayout>
 
 
-    <Button
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/bottomnav2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="SignOut"
-        android:id="@+id/signOut"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

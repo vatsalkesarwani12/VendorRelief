@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -33,7 +34,8 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private Button signOut,saveData,showData;
+    private Button saveData;
+    private ImageView signOut,showData,datab,prec;
     private TextInputEditText shopName,address;
     private Spinner shopCat,state,city,open,openampm,close,closeampm;
     private String ssshopCat=null,ssState=null,ssCity=null,ssopen=null,ssopenampm=null,ssclose=null,sscloseampm=null,sscity=null,ssstate=null;
@@ -70,7 +72,21 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         showData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),VendorData.class));
+                Intent intent=new Intent(getApplicationContext(),VendorData.class);
+                intent.putExtra("Number",mAuth.getCurrentUser().getPhoneNumber());
+                startActivity(intent);
+            }
+        });
+        prec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Precaution.class));
+            }
+        });
+        datab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),CoronaSpreadData.class));
             }
         });
     }
@@ -293,6 +309,8 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         openampm=findViewById(R.id.openampm);
         close=findViewById(R.id.closing);
         closeampm=findViewById(R.id.closeampm);
+        datab=findViewById(R.id.dataB);
+        prec=findViewById(R.id.prec);
     }
 
     @Override

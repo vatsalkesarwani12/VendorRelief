@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +45,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), VendorData.class);
                 intent.putExtra("Number",mdata.get(position).getNum());
+                //Toast.makeText(activity, ""+mdata.get(position).getNum(), Toast.LENGTH_SHORT).show();
                 holder.itemView.getContext().startActivity(intent);
             }
         });
