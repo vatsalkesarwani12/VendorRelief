@@ -39,8 +39,12 @@ public class PrecAdapter extends RecyclerView.Adapter<PrecAdapter.ViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.answer.setVisibility(View.VISIBLE);
-                holder.answer.setText(mdata.get(position).getAnswer());
+                if (holder.answer.getVisibility()==View.GONE) {
+                    holder.answer.setVisibility(View.VISIBLE);
+                    holder.answer.setText(mdata.get(position).getAnswer());
+                }
+                else
+                    holder.answer.setVisibility(View.GONE);
             }
         });
         holder.answer.setVisibility(View.GONE);

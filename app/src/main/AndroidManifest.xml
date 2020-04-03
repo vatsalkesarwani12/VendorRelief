@@ -13,20 +13,26 @@
         android:theme="@style/MaterialTheme">
         <activity
             android:name=".CoronaSpreadData"
-            android:theme="@style/AppTheme1" />
+            android:theme="@style/AppTheme1"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Precaution"
-            android:theme="@style/AppTheme1"/>
+            android:theme="@style/AppTheme1"
+            android:screenOrientation="portrait"/>
         <activity android:name=".VendorData"
-            android:theme="@style/AppTheme1"/>
+            android:theme="@style/AppTheme1"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".VendorActivity"
-            android:theme="@style/MaterialTheme" />
+            android:theme="@style/MaterialTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SignUp"
-            android:theme="@style/MaterialTheme" />
+            android:theme="@style/MaterialTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme1">
+            android:theme="@style/AppTheme1"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -163,6 +163,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                     Log.d("Sucess3", entry.getKey());
                                 }
                                 Collections.sort(cc);
+                                cccc.notifyDataSetChanged();
                             }
 
                         }
@@ -187,6 +188,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                     Log.d("Sucess3", entry.getKey());
                                 }
                                 Collections.sort(cc);
+                                cccc.notifyDataSetChanged();
                             }
 
                         }
@@ -257,7 +259,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
 
 
         cc=new ArrayList<>();
-        cc.add("City");
+        //cc.add("City");
         ss=new ArrayList<>();
         ss.add("State");
 
@@ -271,7 +273,6 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                 //Log.d("Sucess2", document.getId() + " => " + document.getData());
                                 ss.add(document.getId());
                             }
-                            Collections.sort(ss);
                         } else {
                             Log.d("Fail", "Error getting documents: ", task.getException());
                         }
@@ -368,6 +369,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                                             Log.d("Sucess3", entry.getKey());
                                         }
                                         Collections.sort(cc);
+                                        cccc.notifyDataSetChanged();
                                     }
 
                                 }
@@ -377,10 +379,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                 return;
 
             case R.id.city:
-                if (!parent.getItemAtPosition(position).equals("City"))
-                {
-                    sscity=cc.get(position);
-                }
+                sscity=cc.get(position);
                 return;
 
             default:return;

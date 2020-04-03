@@ -29,20 +29,23 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+
     private FirebaseAuth mAuth;
     private ImageView sign;
-    private Spinner city ,state;
+    private Spinner city ,state,category;
     private FirebaseFirestore db;
-    private ArrayAdapter<String> cc,ss;
+    private ArrayAdapter<String> cc,ss,caty;
+    private String[] shopcatt={"Shop Category","All","Grocery","Dairy","Medicine","Others"};
     private ArrayList<String> ccc,sss;
     private ArrayList<UserData> data;
-    String City=null,State=null;
+    String City=null,State=null,Category=null;
     private RecyclerView mrecyclerView;
     private UserAdapter mAdapter;
     private Button Get;
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -124,12 +128,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             for (QueryDocumentSnapshot document :task.getResult())
                             {
                                 Log.d("Sucess10",document.getData().toString());
-                                data.add(new UserData(document.getData().get("Shop Category").toString(),
-                                        document.getData().get("Shop Name").toString(),
-                                        document.getData().get("Opening Time").toString(),
-                                        document.getData().get("Closing Time").toString(),
-                                        document.getData().get("Phone Number").toString()));
-
+                                if (!Category.equals("All")) {
+                                    if (document.getData().get("Shop Category").toString().equals(Category)) {
+                                        data.add(new UserData(document.getData().get("Shop Category").toString(),
+                                                document.getData().get("Shop Name").toString(),
+                                                document.getData().get("Opening Time").toString(),
+                                                document.getData().get("Closing Time").toString(),
+                                                document.getData().get("Phone Number").toString()));
+                                    }
+                                }
+                                else {
+                                    data.add(new UserData(document.getData().get("Shop Category").toString(),
+                                            document.getData().get("Shop Name").toString(),
+                                            document.getData().get("Opening Time").toString(),
+                                            document.getData().get("Closing Time").toString(),
+                                            document.getData().get("Phone Number").toString()));
+                                }
                                 mAdapter.notifyDataSetChanged();
                             }
                             mAdapter.notifyDataSetChanged();
@@ -166,6 +180,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     ccc.add(entry.getKey());
                                     Log.d("Sucess4", entry.getKey());
                                 }
+                                Collections.sort(ccc);
+                                cc.notifyDataSetChanged();
                             }
 
                         }
@@ -189,10 +205,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                     Log.d("Sucess4", entry.getKey());
                                 }
                                 Collections.sort(ccc);
+                                cc.notifyDataSetChanged();
                             }
 
                         }
                     });
+            return false;
+        }
+        if(Category == null)
+        {
             return false;
         }
         return true;
@@ -209,13 +230,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         pre=findViewById(R.id.pre);
         spreaddata=findViewById(R.id.data);
         vendor=findViewById(R.id.vendor);
+        category=findViewById(R.id.ucategory);
 
 
         city.setOnItemSelectedListener(this);
         state.setOnItemSelectedListener(this);
+        category.setOnItemSelectedListener(this);
 
         ccc=new ArrayList<>();
-        ccc.add("City");
+        //ccc.add("City");
         sss=new ArrayList<>();
         sss.add("State");
 
@@ -229,18 +252,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 //Log.d("Sucess2", document.getId() + " => " + document.getData());
                                 sss.add(document.getId());
                             }
-                            Collections.sort(sss);
                         } else {
                             Log.d("Fail", "Error getting documents: ", task.getException());
                         }
                     }
                 });
 
+
         cc=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,ccc);
         ss=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,sss);
+        caty=new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,shopcatt);
 
         city.setAdapter(cc);
         state.setAdapter(ss);
+        category.setAdapter(caty);
 
     }
 
@@ -250,9 +275,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch(spinner_id)
         {
             case R.id.ustate:
-                if (!parent.getItemAtPosition(position).equals("State"))
+                if (parent.getItemAtPosition(position).equals("State"))
+                {
+                    //Toast.makeText(this, "State", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else
                 {
                     State=sss.get(position);
+                    Toast.makeText(this, ""+State, Toast.LENGTH_SHORT).show();
 
                     db.collection("State-City")
                             .document(State)
@@ -270,6 +301,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                             Log.d("Sucess3", entry.getKey());
                                         }
                                         Collections.sort(ccc);
+                                        cc.notifyDataSetChanged();
                                     }
 
                                 }
@@ -279,12 +311,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return;
 
             case R.id.ucity:
-                if (!parent.getItemAtPosition(position).equals("City"))
+                City=ccc.get(position);
+                /*if (parent.getItemAtPosition(position).equals("City"))
+                {
+                    return;
+                }
+                else
                 {
                     City=ccc.get(position);
-                }
+                    Toast.makeText(this, ""+City, Toast.LENGTH_SHORT).show();
+                }*/
                 return;
 
+            case R.id.ucategory:
+                if (!parent.getItemAtPosition(position).equals("Shop Category")){
+                    Category=shopcatt[position];
+                }
+                return;
             default:return;
         }
     }
