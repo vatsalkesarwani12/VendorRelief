@@ -31,4 +31,4 @@
 ![](https://github.com/plazzy99/VendorRelief/blob/master/app/src/main/res/drawable/verificationpop.png)
 ![](https://github.com/plazzy99/VendorRelief/blob/master/app/src/main/res/drawable/vendordetailupdateform.png)
 ![](https://github.com/plazzy99/VendorRelief/blob/master/app/src/main/res/drawable/faqpage.png)
-![](https://github.com/plazzy99/VendorRelief/blob/master/app/src/main/res/drawable/spreaddatapage.png)
+![](https://github.com/plazzy99/VendorRelief/blob/master/app/src/main/res/drawable/spreaddata.png)
