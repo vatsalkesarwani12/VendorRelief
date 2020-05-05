@@ -1,10 +1,12 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import com.CodeNaroNa.vendor.relief.R;
 
 public class CoronaSpreadData extends AppCompatActivity {
     private WebView web;

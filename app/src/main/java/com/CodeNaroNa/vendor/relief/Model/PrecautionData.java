@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Model;
 
 public class PrecautionData {
     String ques,answer;

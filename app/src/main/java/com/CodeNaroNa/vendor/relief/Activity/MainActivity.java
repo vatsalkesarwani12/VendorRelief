@@ -1,11 +1,10 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,10 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.CodeNaroNa.vendor.relief.Adapter.UserAdapter;
+import com.CodeNaroNa.vendor.relief.Model.UserData;
+import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,10 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
@@ -87,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spreaddata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),CoronaSpreadData.class));
+                startActivity(new Intent(getApplicationContext(), CoronaSpreadData.class));
             }
         });
     }

@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
         <activity
-            android:name=".CoronaSpreadData"
+            android:name=".Activity.CoronaSpreadData"
             android:theme="@style/AppTheme1"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Precaution"
+        <activity android:name=".Activity.Precaution"
             android:theme="@style/AppTheme1"
             android:screenOrientation="portrait"/>
-        <activity android:name=".VendorData"
+        <activity android:name=".Model.VendorData"
             android:theme="@style/AppTheme1"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".VendorActivity"
+            android:name=".Activity.VendorActivity"
             android:theme="@style/MaterialTheme"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SignUp"
+            android:name=".Activity.SignUp"
             android:theme="@style/MaterialTheme"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:theme="@style/AppTheme1"
             android:screenOrientation="portrait">
             <intent-filter>

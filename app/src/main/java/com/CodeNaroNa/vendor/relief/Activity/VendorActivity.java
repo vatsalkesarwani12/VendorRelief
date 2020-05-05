@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.CodeNaroNa.vendor.relief.Model.VendorData;
+import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,7 +29,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class VendorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -72,7 +73,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         showData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),VendorData.class);
+                Intent intent=new Intent(getApplicationContext(), VendorData.class);
                 intent.putExtra("Number",mAuth.getCurrentUser().getPhoneNumber());
                 startActivity(intent);
             }
@@ -86,7 +87,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         datab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),CoronaSpreadData.class));
+                startActivity(new Intent(getApplicationContext(), CoronaSpreadData.class));
             }
         });
     }

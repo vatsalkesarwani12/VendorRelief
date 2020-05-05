@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,13 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.CodeNaroNa.vendor.relief.R;
+import com.CodeNaroNa.vendor.relief.Model.UserData;
+import com.CodeNaroNa.vendor.relief.Model.VendorData;
+
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
