@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "371671915786",
+    "firebase_url": "https://vendor-relief.firebaseio.com",
+    "project_id": "vendor-relief",
+    "storage_bucket": "vendor-relief.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371671915786:android:2f5c2ec129640a35fbaef3",
+        "android_client_info": {
+          "package_name": "com.CodeNaroNa.vendor.relief"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371671915786-n3sfisc8p8niq3riqj2j7n2d8ghlvvbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApxVRPlbuKru2v4CauN9gmz4dDTkbD6g0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371671915786-n3sfisc8p8niq3riqj2j7n2d8ghlvvbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
