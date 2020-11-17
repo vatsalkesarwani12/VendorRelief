@@ -15,12 +15,11 @@
 ## Technology
 1. Android
 2. Java
-3. Google FirebaseFirestore
+3. Google Firebase Firestore
 4. Google Analytics
-5. RecyclerView
-6. Spinners
-7. Material I/O
-8. Google FirebaseAuthentication
+5. Recycler View
+6. Material I/O
+7. Google Firebase Authentication
 
 ## Requirement 
 1. Android Version 5.0 and above
