@@ -11,28 +11,35 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
-        <activity
-            android:name=".Activity.CoronaSpreadData"
-            android:theme="@style/AppTheme1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.Precaution"
-            android:theme="@style/AppTheme1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Model.VendorData"
-            android:theme="@style/AppTheme1"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.VendorActivity"
-            android:theme="@style/MaterialTheme"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.SignUp"
-            android:theme="@style/MaterialTheme"
-            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".Activity.MainActivity"
-            android:theme="@style/AppTheme1"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Activity.CoronaSpreadData"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Activity.Precaution"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Model.VendorData"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Activity.VendorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".Activity.SignUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".Activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
