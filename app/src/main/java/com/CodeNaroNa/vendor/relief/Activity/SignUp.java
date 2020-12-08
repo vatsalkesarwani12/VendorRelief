@@ -181,12 +181,11 @@ public class SignUp extends AppCompatActivity {
         dd=new HashMap<>();
     }
     private Boolean checkDetail1(){
-        if (phone.getText().toString().length()!=13 || phone.getText().toString().length()!=10)
-        {
-            phone.setError("Field can't be Empty");
-            return false;
-        }
-        return true;
+        String inputText = phone.getText().toString();
+        if ((inputText.length()==13 && inputText.startsWith("+91")) || phone.getText().toString().length()==10)
+            return true;
+        phone.setError("Invalid phone number");
+        return false;
     }
     private Boolean checkDetail2(){
         if(otp.getText().toString().isEmpty())
