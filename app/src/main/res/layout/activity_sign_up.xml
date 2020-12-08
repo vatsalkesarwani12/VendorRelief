@@ -117,7 +117,7 @@
             android:importantForAutofill="no"
             android:inputType="phone"
             android:maxLength="13"
-            android:hint="Enter 13 digit Number (+91xxxxxxxxxx)"
+            android:hint="@string/enter_your_phone_number"
             android:singleLine="true"
             android:textSize="16dp" />
 
