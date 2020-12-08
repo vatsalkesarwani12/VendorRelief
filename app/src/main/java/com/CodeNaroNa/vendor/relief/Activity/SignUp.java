@@ -2,6 +2,7 @@ package com.CodeNaroNa.vendor.relief.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.CodeNaroNa.vendor.relief.Dialog.DialogLayout;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogInterface {
 
     private TextInputEditText phone;
     private Button gen,verify;
@@ -75,27 +77,29 @@ public class SignUp extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (checkDetail1()) {
-                        fabpop.setVisibility(View.VISIBLE);
+//                      fabpop.setVisibility(View.VISIBLE);
                         verifyPhoneNumber();
+                        DialogLayout dialogLayout = new DialogLayout();
+                        dialogLayout.show(getSupportFragmentManager(),"otp dialog");
                     }
                 }
             });
 
 
-            verify.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (checkDetail2()) {
-                        verifySignInCode();
-                        fabpop.setVisibility(View.GONE);
-                    }
-                }
-            });
+//            verify.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (checkDetail2()) {
+//                        verifySignInCode();
+//                        fabpop.setVisibility(View.GONE);
+//                    }
+//                }
+//            });
         }
     }
 
-    private void verifySignInCode() {
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, otp.getText().toString());
+    private void verifySignInCode(String otpText) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, otpText);
         signInWithPhoneAuthCredential(credential);
     }
 
@@ -168,11 +172,9 @@ public class SignUp extends AppCompatActivity {
     private void intialiseView() {
         phone=findViewById(R.id.phone);
         gen=findViewById(R.id.genOtp);
-        verify=findViewById(R.id.verify);
-        otp=findViewById(R.id.otp);
         mAuth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
-        fabpop=findViewById(R.id.fabpop);
+//        fabpop=findViewById(R.id.fabpop);
         db=FirebaseFirestore.getInstance();
         userselected=findViewById(R.id.userSelected);
         dd=new HashMap<>();
@@ -186,11 +188,7 @@ public class SignUp extends AppCompatActivity {
         return true;
     }
     private Boolean checkDetail2(){
-        if(otp.getText().toString().isEmpty())
-        {
-            otp.setError("Field can't be Empty");
-            return false;
-        }
+
         if (userselected.getCheckedRadioButtonId()!=R.id.newUser && userselected.getCheckedRadioButtonId()!=R.id.ExistingUser)
         {
             gen.setError("");
@@ -198,5 +196,14 @@ public class SignUp extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+
+    @Override
+    public void verify(String otpEdit) {
+        if (checkDetail2()) {
+            verifySignInCode(otpEdit);
+//            fabpop.setVisibility(View.GONE);
+        }
     }
 }
