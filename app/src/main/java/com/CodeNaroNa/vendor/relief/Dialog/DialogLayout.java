@@ -32,6 +32,7 @@ public class DialogLayout extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_layout,null);
 
         builder.setView(view)
+                .setCancelable(false)
                 .setTitle("Enter OTP")
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Verify", new DialogInterface.OnClickListener() {
@@ -44,7 +45,9 @@ public class DialogLayout extends AppCompatDialogFragment {
         editTextOtp = view.findViewById(R.id.otp_editText);
 
         
-        return builder.create();
+        Dialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        return dialog;
     }
 
     @Override

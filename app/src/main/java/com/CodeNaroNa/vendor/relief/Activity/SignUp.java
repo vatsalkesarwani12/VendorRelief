@@ -174,7 +174,7 @@ public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogI
         gen=findViewById(R.id.genOtp);
         mAuth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
-        fabpop=findViewById(R.id.fabpop);
+//        fabpop=findViewById(R.id.fabpop);
         db=FirebaseFirestore.getInstance();
         userselected=findViewById(R.id.userSelected);
         dd=new HashMap<>();
@@ -203,7 +203,7 @@ public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogI
     public void verify(String otpEdit) {
         if (checkDetail2()) {
             verifySignInCode(otpEdit);
-            fabpop.setVisibility(View.GONE);
+//            fabpop.setVisibility(View.GONE);
         }
     }
 }

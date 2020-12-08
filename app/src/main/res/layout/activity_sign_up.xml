@@ -43,57 +43,57 @@
 
     </LinearLayout>
 
-    <com.google.android.material.card.MaterialCardView
-    android:id="@+id/fabpop"
-    android:visibility="gone"
-    android:elevation="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="70dp"
-    android:layout_marginRight="70dp"
-    android:layout_marginTop="150dp"
-    android:layout_marginBottom="250dp"
-    app:cardCornerRadius="15dp"
-    app:strokeColor="@android:color/black"
-    app:strokeWidth="1dp"
-    android:background="@color/grey_20">
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--    android:id="@+id/fabpop"-->
+<!--    android:visibility="gone"-->
+<!--    android:elevation="10dp"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_marginLeft="70dp"-->
+<!--    android:layout_marginRight="70dp"-->
+<!--    android:layout_marginTop="150dp"-->
+<!--    android:layout_marginBottom="250dp"-->
+<!--    app:cardCornerRadius="15dp"-->
+<!--    app:strokeColor="@android:color/black"-->
+<!--    app:strokeWidth="1dp"-->
+<!--    android:background="@color/grey_20">-->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter The OTP"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/otp"
-            android:layout_marginBottom="5dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Enter The OTP"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_above="@+id/otp"-->
+<!--            android:layout_marginBottom="5dp"/>-->
 
-        <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/otp"
-            android:inputType="number"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="5dp"/>
+<!--        <EditText-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/otp"-->
+<!--            android:inputType="number"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_marginBottom="5dp"/>-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/verify"
-            android:hint="Verify"
-            android:textColorHint="@android:color/white"
-            android:background="@color/blue_400"
-            android:layout_below="@+id/otp"
-            android:layout_centerHorizontal="true"/>
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/verify"-->
+<!--            android:hint="Verify"-->
+<!--            android:textColorHint="@android:color/white"-->
+<!--            android:background="@color/blue_400"-->
+<!--            android:layout_below="@+id/otp"-->
+<!--            android:layout_centerHorizontal="true"/>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
-</com.google.android.material.card.MaterialCardView>
+<!--</com.google.android.material.card.MaterialCardView>-->
 
     <LinearLayout
         android:layout_width="match_parent"
