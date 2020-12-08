@@ -143,8 +143,11 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void verifyPhoneNumber() {
+        String phoneNo = phone.getText().toString();
+        phoneNo = phoneNo.length() == 13 ? phoneNo : "+91" + phoneNo;
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phone.getText().toString(),60,TimeUnit.SECONDS,this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                phoneNo,60,TimeUnit.SECONDS,this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                         Toast.makeText(SignUp.this, "Enter OTP", Toast.LENGTH_SHORT).show();
@@ -178,7 +181,7 @@ public class SignUp extends AppCompatActivity {
         dd=new HashMap<>();
     }
     private Boolean checkDetail1(){
-        if (phone.getText().toString().length()!=13)
+        if (phone.getText().toString().length()!=13 || phone.getText().toString().length()!=10)
         {
             phone.setError("Field can't be Empty");
             return false;
