@@ -147,8 +147,11 @@ public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogI
     }
 
     private void verifyPhoneNumber() {
+        String phoneNo = phone.getText().toString();
+        phoneNo = phoneNo.length() == 13 ? phoneNo : "+91" + phoneNo;
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phone.getText().toString(),60,TimeUnit.SECONDS,this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                phoneNo,60,TimeUnit.SECONDS,this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                         Toast.makeText(SignUp.this, "Enter OTP", Toast.LENGTH_SHORT).show();
@@ -180,12 +183,11 @@ public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogI
         dd=new HashMap<>();
     }
     private Boolean checkDetail1(){
-        if (phone.getText().toString().length()!=13)
-        {
-            phone.setError("Field can't be Empty");
-            return false;
-        }
-        return true;
+        String inputText = phone.getText().toString();
+        if ((inputText.length()==13 && inputText.startsWith("+91")) || phone.getText().toString().length()==10)
+            return true;
+        phone.setError("Invalid phone number");
+        return false;
     }
     private Boolean checkDetail2(){
 
