@@ -1,5 +1,8 @@
-# Vendor Relief
-## Android App for people of India during this Pandemic of Covid-19
+<p align="center">
+  <a href="#"><img src="https://capsule-render.vercel.app/api?type=rect&color=ff0897&height=100&section=header&text=Vendor%20Relief&fontSize=50%&fontColor=ffffff%22%20alt=%22website%20title%20image" alt="website title image"></a>
+  <h2 align="center">🏥 Android App for people of India during this Pandemic of Covid-19 🏥</h2>
+</p>
+
 1. During COVID-19, people living in societies and apartments may not be aware of the nearby shops and vendors whether they are providing essential services or not (such as Groceries, Pharmacy, Dairy, etc) and if they may be providing the people may not know the details of the vendors(like timings, contact number and address of the shop).
 2. People may be facing some doubts about covid-19.
 3. After knowing about these problems faced by some of the people ,we have done our best to help them out.
