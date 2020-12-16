@@ -23,4 +23,12 @@
         <item name="colorAccent">@color/purple_600</item>
     </style>
 
+    <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+
 </resources>

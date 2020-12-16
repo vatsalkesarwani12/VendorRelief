@@ -8,62 +8,26 @@
     tools:context=".Activity.MainActivity"
     android:background="#f8f8f8">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/viewb">
-
-    <include
-        layout="@layout/titlebar"/>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ustate"
-        android:layout_gravity="center"/>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ucity"
-        android:layout_gravity="center"/>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ucategory"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Get Vendors"
-        android:id="@+id/Get"/>
-
-    </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="43dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_below="@+id/viewb"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:padding="2dp" />
+        android:id="@+id/fragment_layout"
+        android:layout_above="@+id/bottom_navigation">
+
+    </FrameLayout>
 
 
    <com.google.android.material.bottomnavigation.BottomNavigationView
+       style="@style/BottomNavigationView"
        android:id="@+id/bottom_navigation"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_alignParentBottom="true"
        android:background="?android:attr/windowBackground"
-       app:menu="@menu/bottom_navigation_menu">
+       app:menu="@menu/bottom_navigation_menu"
+       app:itemIconTint="@color/tab_color"
+       app:itemTextColor="@color/colorPrimaryDark">
+
    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>
