@@ -57,4 +57,15 @@ class MainActivityRepository {
         val data = Firebase.firestore.collection(Constants.DATA_FACTS_COLLECTION).get().await()
         return data.toObjects(PrecautionData::class.java) as ArrayList<PrecautionData>
     }
+
+    suspend fun getVendor(phoneNumber:String) : UserData
+    {
+        val data =  Firebase.firestore.collection(Constants.VENDOR_COLLECTION_PATH).document(phoneNumber).get().await()
+        return data.toObject(UserData::class.java)!!
+    }
+
+    suspend fun updateVendor(userData: UserData)
+    {
+        Firebase.firestore.collection(Constants.VENDOR_COLLECTION_PATH).document(userData.phoneNumber).set(userData).await()
+    }
 }

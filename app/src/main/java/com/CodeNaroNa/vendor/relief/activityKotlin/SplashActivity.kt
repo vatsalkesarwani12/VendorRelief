@@ -20,7 +20,8 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             val intent: Intent = if (FirebaseAuth.getInstance().currentUser != null)
-                Intent(this, VendorActivity::class.java)
+                //Intent(this, VendorActivity::class.java)
+                Intent(this, com.CodeNaroNa.vendor.relief.activityKotlin.VendorActivity::class.java)
             else
                 Intent(this, MainActivity::class.java)
             startActivity(intent)

@@ -31,6 +31,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public class VendorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseFirestore db;

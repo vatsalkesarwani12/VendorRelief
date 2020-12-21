@@ -84,52 +84,52 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="State"
             android:id="@+id/vstateFrag"
-            android:textSize="20dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="City"
+            android:text=" "
+            android:textSize="20dp" />
+
+        <TextView
             android:id="@+id/vcityFrag"
-            android:textSize="20dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Phone Number"
+            android:text=" "
+            android:textSize="20dp" />
+
+        <TextView
             android:id="@+id/vphoneFrag"
-            android:textSize="20dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Shop Category"
+            android:text=" "
+            android:textSize="20dp" />
+
+        <TextView
             android:id="@+id/vcategoryFrag"
-            android:textSize="20dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opening Time"
             android:layout_marginBottom="5dp"
+            android:text=" "
+            android:textSize="20dp" />
+
+        <TextView
             android:id="@+id/vopenFrag"
-            android:textSize="20dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Closing Time"
             android:layout_marginBottom="5dp"
+            android:text=" "
+            android:textSize="20dp" />
+
+        <TextView
             android:id="@+id/vcloseFrag"
-            android:textSize="20dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text=" "
+            android:textSize="20dp" />
 
     </LinearLayout>
 
@@ -156,12 +156,12 @@
                 android:textColor="@android:color/black"/>
 
             <TextView
+                android:id="@+id/vnameFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="Shop Name"
-                android:id="@+id/vnameFrag"
-                android:textSize="20dp"/>
+                android:text=" "
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -179,12 +179,12 @@
                 android:textColor="@android:color/black"/>
 
             <TextView
+                android:id="@+id/vaddressFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shop Address"
                 android:layout_marginBottom="5dp"
-                android:id="@+id/vaddressFrag"
-                android:textSize="20dp"/>
+                android:text=" "
+                android:textSize="20dp" />
 
         </LinearLayout>
 

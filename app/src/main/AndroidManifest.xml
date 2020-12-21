@@ -32,6 +32,11 @@
             android:name=".Activity.VendorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
+
+        <activity
+            android:name=".activityKotlin.VendorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".Activity.SignUp"
             android:screenOrientation="portrait"

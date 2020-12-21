@@ -70,7 +70,6 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
                 is Resource.Success -> {
                     val cityArrayAdapter =
                             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, it.data!!)
-
                     binding.ucity.adapter = cityArrayAdapter
                 }
                 else -> {
