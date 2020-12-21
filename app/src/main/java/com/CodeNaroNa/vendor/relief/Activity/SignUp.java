@@ -55,12 +55,10 @@ public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogI
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (fabpop.getVisibility()==View.VISIBLE)
+        if (fabpop!=null && fabpop.getVisibility()==View.VISIBLE)
         {
             fabpop.setVisibility(View.GONE);
         }
-        else
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.CodeNaroNa.vendor.relief.FragmentsKotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.CodeNaroNa.vendor.relief.Activity.SignUp
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Resource
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Utility
 import com.CodeNaroNa.vendor.relief.R
@@ -98,6 +100,10 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
 
         binding.Get.setOnClickListener {
             getVendors()
+        }
+
+        binding.titleLayout.sign.setOnClickListener {
+            startActivity(Intent(requireActivity(),SignUp::class.java))
         }
 
         userAdapter = UserAdapter(this)
