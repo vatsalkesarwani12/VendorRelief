@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.CodeNaroNa.vendor.relief.R;
 
 
+@Deprecated
 public class CoronaSpreadDataFragment extends Fragment {
 
     private WebView web;

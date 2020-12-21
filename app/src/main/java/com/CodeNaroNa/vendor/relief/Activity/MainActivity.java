@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.CodeNaroNa.vendor.relief.CoronaSpreadDataFragment;
+import com.CodeNaroNa.vendor.relief.FragmentsKotlin.CoronaSpreadDataFragment;
 import com.CodeNaroNa.vendor.relief.FragmentsKotlin.HomeFragment;
 import com.CodeNaroNa.vendor.relief.FragmentsKotlin.PrecautionFragment;
 import com.CodeNaroNa.vendor.relief.R;
