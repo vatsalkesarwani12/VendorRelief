@@ -32,9 +32,9 @@ class SignUp : BaseActivity(), OtpDialogInterface {
         viewModel = ViewModelProvider(this, factory).get(SignUpActivityViewModel::class.java)
 
         //To Delete Current User [Testing Purposes only]
-        FirebaseAuth.getInstance().currentUser?.apply {
-            this.delete()
-        }
+//        FirebaseAuth.getInstance().currentUser?.apply {
+//            this.delete()
+//        }
 
 
         setUpClickListeners()

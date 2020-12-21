@@ -21,6 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class PrecautionFragment extends Fragment {
 
     private FirebaseFirestore db;

@@ -14,6 +14,7 @@ import com.CodeNaroNa.vendor.relief.R;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class PrecAdapter extends RecyclerView.Adapter<PrecAdapter.ViewHolder> {
     private Activity activity;
     private ArrayList<PrecautionData> mdata;

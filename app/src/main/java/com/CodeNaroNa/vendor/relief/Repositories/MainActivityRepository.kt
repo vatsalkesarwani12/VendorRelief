@@ -1,6 +1,7 @@
 package com.CodeNaroNa.vendor.relief.Repositories
 
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Constants
+import com.CodeNaroNa.vendor.relief.modelKotlin.PrecautionData
 import com.CodeNaroNa.vendor.relief.modelKotlin.UserData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -49,5 +50,11 @@ class MainActivityRepository {
     {
         val data = UserData(phoneNumber = phoneNumber)
         Firebase.firestore.collection(Constants.VENDOR_COLLECTION_PATH).document(phoneNumber).set(data).await()
+    }
+
+    suspend fun getPrecautionData() : ArrayList<PrecautionData>
+    {
+        val data = Firebase.firestore.collection(Constants.DATA_FACTS_COLLECTION).get().await()
+        return data.toObjects(PrecautionData::class.java) as ArrayList<PrecautionData>
     }
 }

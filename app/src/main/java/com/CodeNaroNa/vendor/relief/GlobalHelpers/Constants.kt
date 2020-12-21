@@ -4,6 +4,7 @@ object Constants
 {
     const val STATE_COLLECTION_PATH = "State-City"
     const val VENDOR_COLLECTION_PATH = "Vendor"
+    const val DATA_FACTS_COLLECTION = "Data-Facts"
 
     const val CITY_PARAMETER ="City"
 

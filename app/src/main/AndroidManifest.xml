@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activityKotlin.BasicActivity"></activity>
+        <activity android:name=".activityKotlin.BaseActivity"/>
         <activity
             android:name=".Activity.MainActivity"
             android:screenOrientation="portrait"
@@ -41,7 +41,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".Activity.SplashActivity"
+            android:name=".activityKotlin.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1">
             <intent-filter>

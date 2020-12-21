@@ -1,5 +1,6 @@
 package com.CodeNaroNa.vendor.relief.Model;
 
+@Deprecated
 public class PrecautionData {
     String ques,answer;
 
