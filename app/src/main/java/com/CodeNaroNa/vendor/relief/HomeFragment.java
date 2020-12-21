@@ -41,6 +41,7 @@ import java.util.Collections;
 import java.util.Map;
 
 
+@Deprecated
 public class HomeFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth mAuth;

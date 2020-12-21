@@ -11,11 +11,10 @@ import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+@Deprecated
 public class VendorData extends AppCompatActivity {
     private TextView state,city,phone,cate,ot,ct,name,add;
     private FirebaseFirestore db;

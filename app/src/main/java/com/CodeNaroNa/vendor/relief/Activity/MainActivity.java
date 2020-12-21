@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.CodeNaroNa.vendor.relief.Adapter.UserAdapter;
 import com.CodeNaroNa.vendor.relief.CoronaSpreadDataFragment;
-import com.CodeNaroNa.vendor.relief.HomeFragment;
+import com.CodeNaroNa.vendor.relief.FragmentsKotlin.HomeFragment;
 import com.CodeNaroNa.vendor.relief.Model.UserData;
 import com.CodeNaroNa.vendor.relief.PrecautionFragment;
 import com.CodeNaroNa.vendor.relief.R;
@@ -39,8 +39,6 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity  {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
+                    selectedFragment = new com.CodeNaroNa.vendor.relief.FragmentsKotlin.HomeFragment();
                     break;
                 case R.id.nav_data:
                     selectedFragment = new CoronaSpreadDataFragment();
@@ -75,19 +73,4 @@ public class MainActivity extends AppCompatActivity  {
             return true;
         }
     };
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finishAffinity();
-        finish();
-    }
-
-
-
-
-
-
-
 }

@@ -16,6 +16,7 @@ import com.CodeNaroNa.vendor.relief.Model.VendorData;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     private Activity activity;
