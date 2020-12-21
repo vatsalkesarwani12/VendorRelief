@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.CodeNaroNa.vendor.relief.Repositories.MainActivityRepository
 
-class HomeFragmentViewModelFactory(private val applicationContext: Context,private val mainActivityRepository: MainActivityRepository):ViewModelProvider.NewInstanceFactory()
+class SignUpActivityViewModelFactory(private val applicationContext: Context, private val mainActivityRepository: MainActivityRepository) : ViewModelProvider.NewInstanceFactory()
 {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return HomeFragmentViewModel(applicationContext,mainActivityRepository) as T
+        return SignUpActivityViewModel(applicationContext,mainActivityRepository) as T
     }
 }

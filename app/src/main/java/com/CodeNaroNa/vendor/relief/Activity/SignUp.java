@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+@Deprecated
 public class SignUp extends AppCompatActivity implements DialogLayout.OtpDialogInterface {
 
     private TextInputEditText phone;

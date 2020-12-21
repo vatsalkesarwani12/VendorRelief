@@ -3,10 +3,13 @@ package com.CodeNaroNa.vendor.relief.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.CodeNaroNa.vendor.relief.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.ktx.Firebase;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -21,6 +24,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                if(FirebaseAuth.getInstance().getCurrentUser()!=null)
+                {
+                    mainIntent = new Intent(SplashActivity.this,VendorActivity.class);
+                    Log.d("SSSS","User Present");
+                }
                 startActivity(mainIntent);
                 finish();
             }

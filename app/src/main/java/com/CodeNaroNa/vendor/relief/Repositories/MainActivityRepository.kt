@@ -8,7 +8,6 @@ import kotlinx.coroutines.tasks.await
 
 class MainActivityRepository {
 
-
     suspend fun getStateList(): ArrayList<String> {
         val stateList = ArrayList<String>()
         stateList.add("State")
@@ -20,7 +19,6 @@ class MainActivityRepository {
 
         return stateList
     }
-
 
     suspend fun getCityList(stateName: String): ArrayList<String> {
         val cityList = ArrayList<String>()
@@ -45,5 +43,11 @@ class MainActivityRepository {
                 .whereEqualTo(Constants.CITY_PARAMETER, cityName).whereEqualTo("Shop Category", shopCategory).get().await()
 
         return query.toObjects(UserData::class.java) as ArrayList<UserData>
+    }
+
+    suspend fun signUpNewVendor(phoneNumber:String)
+    {
+        val data = UserData(phoneNumber = phoneNumber)
+        Firebase.firestore.collection(Constants.VENDOR_COLLECTION_PATH).document(phoneNumber).set(data).await()
     }
 }

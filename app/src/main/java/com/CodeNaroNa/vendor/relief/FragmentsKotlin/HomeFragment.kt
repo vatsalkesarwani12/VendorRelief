@@ -103,7 +103,8 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
         }
 
         binding.titleLayout.sign.setOnClickListener {
-            startActivity(Intent(requireActivity(),SignUp::class.java))
+            //startActivity(Intent(requireActivity(),SignUp::class.java))
+           startActivity(Intent(requireActivity(),com.CodeNaroNa.vendor.relief.activityKotlin.SignUp::class.java))
         }
 
         userAdapter = UserAdapter(this)

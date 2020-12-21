@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
-
+        <activity android:name=".activityKotlin.BasicActivity"></activity>
         <activity
             android:name=".Activity.MainActivity"
             android:screenOrientation="portrait"
@@ -34,6 +34,10 @@
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".Activity.SignUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".activityKotlin.SignUp"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
         <activity
