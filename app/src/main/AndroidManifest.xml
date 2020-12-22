@@ -11,54 +11,25 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
-        <activity android:name=".activityKotlin.BaseActivity"/>
 
-<!--        Deprecated Activities present for backwards compatibility-->
+        <activity android:name=".GlobalHelpers.BaseActivity"/>
+
         <activity
-            android:name=".Deprecated.Activity.MainActivity"
+            android:name=".MainActivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
+
         <activity
-            android:name=".Deprecated.Activity.CoronaSpreadData"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Deprecated.Activity.Precaution"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Deprecated.Activity.VendorData"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Deprecated.Activity.VendorActivity"
+            android:name=".VendorActivity.VendorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
 
         <activity
-            android:name=".Deprecated.Activity.SignUp"
-            android:screenOrientation="portrait"
-            android:theme="@style/MaterialTheme" />
-
-
-        <!--New Kotlin Activities -->
-
-        <activity
-            android:name=".activityKotlin.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-
-        <activity
-            android:name=".activityKotlin.VendorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MaterialTheme" />
-
-        <activity
-            android:name=".activityKotlin.SignUp"
+            android:name=".SignUpActivity.SignUp"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".activityKotlin.SplashActivity"
+            android:name=".SplashActiviy.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1">
             <intent-filter>
