@@ -20,18 +20,21 @@ import com.CodeNaroNa.vendor.relief.Repositories.MainActivityRepository
 import com.CodeNaroNa.vendor.relief.ViewModels.HomeFragmentViewModel
 import com.CodeNaroNa.vendor.relief.ViewModels.HomeFragmentViewModelFactory
 import com.CodeNaroNa.vendor.relief.ViewModels.MainActivityViewModel
+import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity
+import com.CodeNaroNa.vendor.relief.activityKotlin.VendorActivity
 import com.CodeNaroNa.vendor.relief.adapterKotlin.UserAdapter
 import com.CodeNaroNa.vendor.relief.databinding.FragmentHomeBinding
 import com.CodeNaroNa.vendor.relief.modelKotlin.UserData
+import com.google.firebase.auth.FirebaseAuth
 
-class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterEventListener {
+class HomeFragment : Fragment(), OnItemSelectedListener, UserAdapter.UserAdapterEventListener {
     //ViewBinding Variables
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var userAdapter: UserAdapter
     private lateinit var viewModel: HomeFragmentViewModel
-    private lateinit var sharedViewModel : MainActivityViewModel
+    private lateinit var sharedViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +85,9 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
                 is Resource.Success -> {
                     userAdapter.differ.submitList(it.data)
                 }
+                is Resource.Error -> {
+                    (requireActivity() as BaseActivity).showErrorSnackMessage(it.message!!)
+                }
                 else -> {
                 }
             }
@@ -103,7 +109,12 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
 
         binding.titleLayout.sign.setOnClickListener {
             //startActivity(Intent(requireActivity(),SignUp::class.java))
-           startActivity(Intent(requireActivity(),com.CodeNaroNa.vendor.relief.activityKotlin.SignUp::class.java))
+            if (FirebaseAuth.getInstance().currentUser != null) {
+                startActivity(Intent(requireActivity(), VendorActivity::class.java))
+            } else
+                startActivity(Intent(requireActivity(), com.CodeNaroNa.vendor.relief.activityKotlin.SignUp::class.java))
+
+            requireActivity().finish()
         }
 
         userAdapter = UserAdapter(this)
@@ -141,6 +152,6 @@ class HomeFragment : Fragment(), OnItemSelectedListener,UserAdapter.UserAdapterE
 
     override fun onUserViewHolderClicked(userData: UserData) {
         sharedViewModel.selectedUserData = userData
-        Utility.navigateFragment(requireActivity().supportFragmentManager,R.id.fragment_layout,VendorDataFragment(),"vendorDataFrag")
+        Utility.navigateFragment(requireActivity().supportFragmentManager, R.id.fragment_layout, VendorDataFragment(), "vendorDataFrag")
     }
 }

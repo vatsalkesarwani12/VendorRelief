@@ -7,7 +7,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.CodeNaroNa.vendor.relief.R;
-
+@Deprecated
 public class CoronaSpreadData extends AppCompatActivity {
     private WebView web;
 

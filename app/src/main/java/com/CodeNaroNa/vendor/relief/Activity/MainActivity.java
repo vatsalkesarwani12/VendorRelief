@@ -11,9 +11,10 @@ import com.CodeNaroNa.vendor.relief.FragmentsKotlin.CoronaSpreadDataFragment;
 import com.CodeNaroNa.vendor.relief.FragmentsKotlin.HomeFragment;
 import com.CodeNaroNa.vendor.relief.FragmentsKotlin.PrecautionFragment;
 import com.CodeNaroNa.vendor.relief.R;
+import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

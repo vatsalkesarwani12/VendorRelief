@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.CodeNaroNa.vendor.relief.R;
 
+@Deprecated
 public class DialogLayout extends AppCompatDialogFragment {
 
     private EditText editTextOtp;

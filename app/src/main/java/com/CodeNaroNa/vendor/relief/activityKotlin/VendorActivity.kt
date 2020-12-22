@@ -23,6 +23,6 @@ class VendorActivity : BaseActivity()
         val factory = VendorActivityViewModelFactory(this.applicationContext, MainActivityRepository())
         viewModel = ViewModelProvider(this,factory).get(VendorActivityViewModel::class.java)
 
-        Utility.navigateFragment(supportFragmentManager, R.id.vendorMainContainer,VendorFragment(),"vendorFrag")
+        Utility.navigateFragment(supportFragmentManager, R.id.vendorMainContainer,VendorFragment(),"vendorFrag",replaceOrAdd = false,addToBackStack = false)
     }
 }

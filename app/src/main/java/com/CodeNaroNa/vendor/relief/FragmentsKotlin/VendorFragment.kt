@@ -93,7 +93,7 @@ class VendorFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun signOut() {
-        //FirebaseAuth.getInstance().signOut()
+        FirebaseAuth.getInstance().signOut()
         startActivity(Intent(requireActivity(),MainActivity::class.java))
         requireActivity().finish()
     }

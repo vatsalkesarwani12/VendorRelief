@@ -65,6 +65,9 @@ class HomeFragmentViewModel(private val applicationContext: Context, private val
         viewModelScope.launch(Dispatchers.IO) {
             try {
                val list = mainActivityRepository.getVendorData(stateName,cityName, shopCategory)
+                if(list.size ==0)
+                    throw Exception("No Vendors Found")
+
                 _vendorList.postValue(Resource.Success(data = list))
             } catch (e: Exception) {
                _vendorList.postValue(Resource.Error(message = ""+e.localizedMessage))
