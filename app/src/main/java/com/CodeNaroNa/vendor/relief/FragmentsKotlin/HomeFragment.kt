@@ -110,11 +110,11 @@ class HomeFragment : Fragment(), OnItemSelectedListener, UserAdapter.UserAdapter
         binding.titleLayout.sign.setOnClickListener {
             //startActivity(Intent(requireActivity(),SignUp::class.java))
             if (FirebaseAuth.getInstance().currentUser != null) {
-                startActivity(Intent(requireActivity(), VendorActivity::class.java))
+                val intent = Intent(requireActivity(), VendorActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
             } else
                 startActivity(Intent(requireActivity(), com.CodeNaroNa.vendor.relief.activityKotlin.SignUp::class.java))
-
-            requireActivity().finish()
         }
 
         userAdapter = UserAdapter(this)

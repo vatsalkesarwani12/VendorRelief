@@ -16,6 +16,11 @@
             android:name=".Activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
+
+        <activity
+            android:name=".activityKotlin.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
         <activity
             android:name=".Activity.CoronaSpreadData"
             android:screenOrientation="portrait"

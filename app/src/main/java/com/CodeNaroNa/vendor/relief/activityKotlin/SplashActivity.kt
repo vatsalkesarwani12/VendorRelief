@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.CodeNaroNa.vendor.relief.Activity.MainActivity
-import com.CodeNaroNa.vendor.relief.Activity.VendorActivity
 import com.CodeNaroNa.vendor.relief.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -21,11 +19,12 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed({
             val intent: Intent = if (FirebaseAuth.getInstance().currentUser != null)
                 //Intent(this, VendorActivity::class.java)
-                Intent(this, com.CodeNaroNa.vendor.relief.activityKotlin.VendorActivity::class.java)
+                Intent(this, VendorActivity::class.java)
             else
                 Intent(this, MainActivity::class.java)
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
-            finish()
         }, SPLASH_TIME_OUT)
     }
 }

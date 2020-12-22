@@ -14,6 +14,7 @@ import com.CodeNaroNa.vendor.relief.R;
 import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+@Deprecated
 public class MainActivity extends BaseActivity {
 
     @Override
