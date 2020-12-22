@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Model;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Adapter;
+package com.CodeNaroNa.vendor.relief.Deprecated.Adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.CodeNaroNa.vendor.relief.Model.PrecautionData;
+import com.CodeNaroNa.vendor.relief.Deprecated.Model.PrecautionData;
 import com.CodeNaroNa.vendor.relief.R;
 
 import java.util.ArrayList;

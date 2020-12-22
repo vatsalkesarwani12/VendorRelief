@@ -1,10 +1,9 @@
-package com.CodeNaroNa.vendor.relief.Activity;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.CodeNaroNa.vendor.relief.FragmentsKotlin.CoronaSpreadDataFragment;

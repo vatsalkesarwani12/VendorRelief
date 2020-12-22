@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 
+@Suppress("unused")
 class SignUpActivityViewModel(private val applicationContext: Context, private val mainActivityRepository: MainActivityRepository) : ViewModel() {
 
 

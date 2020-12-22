@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Activity;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.CodeNaroNa.vendor.relief.Model.VendorData;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

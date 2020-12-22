@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.CodeNaroNa.vendor.relief.activityKotlin
 
 import android.app.ProgressDialog
@@ -10,6 +12,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.CodeNaroNa.vendor.relief.R
 import com.google.android.material.snackbar.Snackbar
+
 
 open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

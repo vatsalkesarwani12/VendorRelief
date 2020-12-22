@@ -35,6 +35,7 @@ class MainActivityRepository {
         return cityList
     }
 
+    @Suppress("UNUSED_PARAMETER")
     suspend fun getVendorData(stateName: String, cityName: String, shopCategory: String): ArrayList<UserData> {
 
         val query = if (shopCategory == "All")

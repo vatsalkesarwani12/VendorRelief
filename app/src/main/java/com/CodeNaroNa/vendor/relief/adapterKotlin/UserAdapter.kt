@@ -2,11 +2,9 @@ package com.CodeNaroNa.vendor.relief.adapterKotlin
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.CodeNaroNa.vendor.relief.R
 import com.CodeNaroNa.vendor.relief.databinding.UserFrameBinding
 import com.CodeNaroNa.vendor.relief.modelKotlin.UserData
 

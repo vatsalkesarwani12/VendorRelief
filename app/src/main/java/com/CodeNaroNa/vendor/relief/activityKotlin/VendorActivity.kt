@@ -7,7 +7,7 @@ import com.CodeNaroNa.vendor.relief.GlobalHelpers.Utility
 import com.CodeNaroNa.vendor.relief.R
 import com.CodeNaroNa.vendor.relief.Repositories.MainActivityRepository
 import com.CodeNaroNa.vendor.relief.ViewModels.VendorActivityViewModel
-import com.CodeNaroNa.vendor.relief.ViewModels.VendorActivityViewModelFactory
+import com.CodeNaroNa.vendor.relief.ViewModels.viewModelfactories.VendorActivityViewModelFactory
 import com.CodeNaroNa.vendor.relief.databinding.ActivityVendor2Binding
 
 class VendorActivity : BaseActivity()

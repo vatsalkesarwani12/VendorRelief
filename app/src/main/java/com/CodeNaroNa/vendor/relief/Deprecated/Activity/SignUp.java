@@ -1,8 +1,7 @@
-package com.CodeNaroNa.vendor.relief.Activity;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.CodeNaroNa.vendor.relief.Dialog.DialogLayout;
+import com.CodeNaroNa.vendor.relief.Deprecated.Dialog.DialogLayout;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

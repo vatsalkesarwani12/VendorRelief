@@ -16,7 +16,18 @@ import com.CodeNaroNa.vendor.relief.modelKotlin.UserData
 
 class VendorDataFragment : Fragment() {
 
+
     companion object {
+        /**
+         * This method is used to obtain an object of VendorDataFragment along with the bundle argument of fromClass which
+         * specifies from which Activity the fragment is obtained
+         *
+         * This is done for reusing of code since 2 Activities Are using the same fragment we can specify the calling Activity class
+         * so as to perform operations accordingly
+         *
+         * @param fromClass -> A tag used to specify the calling activity
+         * @return VendorDataFragment with calling class tag bundle argument
+         */
         @JvmStatic
         fun newInstance(fromClass: String) = VendorDataFragment().apply {
             arguments = Bundle().apply {

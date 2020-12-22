@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Activity;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.ktx.Firebase;
 
 
 @Deprecated

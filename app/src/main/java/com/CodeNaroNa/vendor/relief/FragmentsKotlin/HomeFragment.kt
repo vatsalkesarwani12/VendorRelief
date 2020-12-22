@@ -12,13 +12,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.CodeNaroNa.vendor.relief.Activity.SignUp
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Resource
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Utility
 import com.CodeNaroNa.vendor.relief.R
 import com.CodeNaroNa.vendor.relief.Repositories.MainActivityRepository
 import com.CodeNaroNa.vendor.relief.ViewModels.HomeFragmentViewModel
-import com.CodeNaroNa.vendor.relief.ViewModels.HomeFragmentViewModelFactory
+import com.CodeNaroNa.vendor.relief.ViewModels.viewModelfactories.HomeFragmentViewModelFactory
 import com.CodeNaroNa.vendor.relief.ViewModels.MainActivityViewModel
 import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity
 import com.CodeNaroNa.vendor.relief.activityKotlin.VendorActivity

@@ -1,7 +1,6 @@
 package com.CodeNaroNa.vendor.relief.FragmentsKotlin
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +12,22 @@ import com.CodeNaroNa.vendor.relief.GlobalHelpers.Constants
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Resource
 import com.CodeNaroNa.vendor.relief.ViewModels.MainActivityViewModel
 import com.CodeNaroNa.vendor.relief.ViewModels.VendorActivityViewModel
-import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity
 import com.CodeNaroNa.vendor.relief.adapterKotlin.PrecAdapter
 import com.CodeNaroNa.vendor.relief.databinding.FragmentPrecautionBinding
 
 class PrecautionFragment : Fragment()
 {
     companion object {
+        /**
+         * This method is used to obtain an object of PrecautionFragment along with the bundle argument of fromClass which
+         * specifies from which Activity the fragment is obtained
+         *
+         * This is done for reusing of code since 2 Activities Are using the same fragment we can specify the calling Activity class
+         * so as to perform operations accordingly
+         *
+         * @param fromClass -> A tag used to specify the calling activity
+         * @return PrecautionFragment with calling class tag bundle argument
+         */
         @JvmStatic
         fun newInstance(fromClass: String) = PrecautionFragment().apply {
             arguments = Bundle().apply {
@@ -82,7 +90,7 @@ class PrecautionFragment : Fragment()
                         precAdapter.differ.submitList(it.data!!)
                     }
                     is Resource.Error -> {
-                        Toast.makeText(requireContext(), ""+it.message!!, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), ""+it.message!!, Toast.LENGTH_SHORT).show()
                     }
                     else ->{ }
                 }
@@ -97,7 +105,7 @@ class PrecautionFragment : Fragment()
                         precAdapter.differ.submitList(it.data!!)
                     }
                     is Resource.Error -> {
-                        Toast.makeText(requireContext(), ""+it.message!!, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), ""+it.message!!, Toast.LENGTH_SHORT).show()
                     }
                     else ->{ }
                 }

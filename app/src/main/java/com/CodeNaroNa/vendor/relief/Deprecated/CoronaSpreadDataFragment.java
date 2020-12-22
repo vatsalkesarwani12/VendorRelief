@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Deprecated;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

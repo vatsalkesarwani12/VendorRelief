@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+@Suppress("unused")
 class VendorActivityViewModel(private val applicationContext: Context, private val mainActivityRepository: MainActivityRepository) : ViewModel() {
     private val _stateList = MutableLiveData<Resource<ArrayList<String>>>()
     val stateList: LiveData<Resource<ArrayList<String>>>

@@ -12,40 +12,47 @@
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
         <activity android:name=".activityKotlin.BaseActivity"/>
+
+<!--        Deprecated Activities present for backwards compatibility-->
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Deprecated.Activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Deprecated.Activity.CoronaSpreadData"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Deprecated.Activity.Precaution"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Deprecated.Activity.VendorData"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Deprecated.Activity.VendorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
+
+        <activity
+            android:name=".Deprecated.Activity.SignUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme" />
+
+
+        <!--New Kotlin Activities -->
 
         <activity
             android:name=".activityKotlin.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Activity.CoronaSpreadData"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Activity.Precaution"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Model.VendorData"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Activity.VendorActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MaterialTheme" />
 
         <activity
             android:name=".activityKotlin.VendorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
-        <activity
-            android:name=".Activity.SignUp"
-            android:screenOrientation="portrait"
-            android:theme="@style/MaterialTheme" />
+
         <activity
             android:name=".activityKotlin.SignUp"
             android:screenOrientation="portrait"

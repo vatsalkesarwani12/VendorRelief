@@ -1,10 +1,9 @@
-package com.CodeNaroNa.vendor.relief;
+package com.CodeNaroNa.vendor.relief.Deprecated;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,17 +15,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.CodeNaroNa.vendor.relief.Activity.CoronaSpreadData;
-import com.CodeNaroNa.vendor.relief.Activity.MainActivity;
-import com.CodeNaroNa.vendor.relief.Activity.Precaution;
-import com.CodeNaroNa.vendor.relief.Activity.SignUp;
-import com.CodeNaroNa.vendor.relief.Activity.VendorActivity;
-import com.CodeNaroNa.vendor.relief.Adapter.UserAdapter;
-import com.CodeNaroNa.vendor.relief.Model.UserData;
+import com.CodeNaroNa.vendor.relief.Deprecated.Activity.SignUp;
+import com.CodeNaroNa.vendor.relief.Deprecated.Activity.VendorActivity;
+import com.CodeNaroNa.vendor.relief.Deprecated.Adapter.UserAdapter;
+import com.CodeNaroNa.vendor.relief.Deprecated.Model.UserData;
+import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

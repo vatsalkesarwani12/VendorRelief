@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Adapter;
+package com.CodeNaroNa.vendor.relief.Deprecated.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.CodeNaroNa.vendor.relief.R;
-import com.CodeNaroNa.vendor.relief.Model.UserData;
-import com.CodeNaroNa.vendor.relief.Model.VendorData;
+import com.CodeNaroNa.vendor.relief.Deprecated.Model.UserData;
+import com.CodeNaroNa.vendor.relief.Deprecated.Activity.VendorData;
 
 import java.util.ArrayList;
 

@@ -1,14 +1,18 @@
-package com.CodeNaroNa.vendor.relief.Activity;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+package com.CodeNaroNa.vendor.relief.Deprecated;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.CodeNaroNa.vendor.relief.Adapter.PrecAdapter;
-import com.CodeNaroNa.vendor.relief.Model.PrecautionData;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.CodeNaroNa.vendor.relief.Deprecated.Adapter.PrecAdapter;
+import com.CodeNaroNa.vendor.relief.Deprecated.Model.PrecautionData;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,40 +21,29 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+
 @Deprecated
-public class Precaution extends AppCompatActivity {
+public class PrecautionFragment extends Fragment {
 
     private FirebaseFirestore db;
     private RecyclerView mrecylerView;
     private ArrayList<PrecautionData> data;
     private PrecAdapter mAdapter;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_precaution);
-        initialView();
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        db=FirebaseFirestore.getInstance();
+        View view =inflater.inflate(R.layout.fragment_precaution, container,false);
+        mrecylerView=view.findViewById(R.id.precRecycle);
+        return view;
     }
-
     @Override
-    protected void onResume() {
-        super.onResume();
-        mAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        mAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
         data=new ArrayList<>();
-        mAdapter=new PrecAdapter(this,data);
+        mAdapter=new PrecAdapter(getActivity(),data);
         mrecylerView.setAdapter(mAdapter);
 
         db.collection("Data-Facts")
@@ -72,8 +65,12 @@ public class Precaution extends AppCompatActivity {
                 });
     }
 
-    private void initialView() {
-        db=FirebaseFirestore.getInstance();
-        mrecylerView=findViewById(R.id.precRecycle);
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
     }
+
 }
+
+

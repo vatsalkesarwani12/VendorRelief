@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Activity;
+package com.CodeNaroNa.vendor.relief.Deprecated.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

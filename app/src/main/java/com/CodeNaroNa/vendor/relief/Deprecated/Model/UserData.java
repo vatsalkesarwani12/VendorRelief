@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Model;
+package com.CodeNaroNa.vendor.relief.Deprecated.Model;
 
 @Deprecated
 public class UserData {

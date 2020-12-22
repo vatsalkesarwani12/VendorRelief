@@ -10,13 +10,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.CodeNaroNa.vendor.relief.Activity.MainActivity
+
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Constants
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Resource
 import com.CodeNaroNa.vendor.relief.GlobalHelpers.Utility
 import com.CodeNaroNa.vendor.relief.R
 import com.CodeNaroNa.vendor.relief.ViewModels.VendorActivityViewModel
 import com.CodeNaroNa.vendor.relief.activityKotlin.BaseActivity
+import com.CodeNaroNa.vendor.relief.activityKotlin.MainActivity
 import com.CodeNaroNa.vendor.relief.databinding.FragmentVendorBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -94,7 +95,7 @@ class VendorFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun signOut() {
         FirebaseAuth.getInstance().signOut()
-        startActivity(Intent(requireActivity(),MainActivity::class.java))
+        startActivity(Intent(requireActivity(), MainActivity::class.java))
         requireActivity().finish()
     }
 

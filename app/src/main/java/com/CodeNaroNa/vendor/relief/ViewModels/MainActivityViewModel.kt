@@ -1,6 +1,5 @@
 package com.CodeNaroNa.vendor.relief.ViewModels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,6 @@ import com.CodeNaroNa.vendor.relief.modelKotlin.PrecautionData
 import com.CodeNaroNa.vendor.relief.modelKotlin.UserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class MainActivityViewModel : ViewModel() {
     lateinit var selectedUserData: UserData

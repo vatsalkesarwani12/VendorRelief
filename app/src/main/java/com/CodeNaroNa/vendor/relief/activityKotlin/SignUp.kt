@@ -9,7 +9,7 @@ import com.CodeNaroNa.vendor.relief.GlobalHelpers.Resource
 import com.CodeNaroNa.vendor.relief.R
 import com.CodeNaroNa.vendor.relief.Repositories.MainActivityRepository
 import com.CodeNaroNa.vendor.relief.ViewModels.SignUpActivityViewModel
-import com.CodeNaroNa.vendor.relief.ViewModels.SignUpActivityViewModelFactory
+import com.CodeNaroNa.vendor.relief.ViewModels.viewModelfactories.SignUpActivityViewModelFactory
 import com.CodeNaroNa.vendor.relief.databinding.ActivitySignUpBinding
 import com.CodeNaroNa.vendor.relief.dialogKotlin.DialogLayout
 import com.google.firebase.FirebaseException

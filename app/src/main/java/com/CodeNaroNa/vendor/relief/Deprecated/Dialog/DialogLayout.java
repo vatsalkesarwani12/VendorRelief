@@ -1,4 +1,4 @@
-package com.CodeNaroNa.vendor.relief.Dialog;
+package com.CodeNaroNa.vendor.relief.Deprecated.Dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
