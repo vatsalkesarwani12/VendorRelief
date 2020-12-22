@@ -12,32 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/MaterialTheme">
 
+        <activity android:name=".GlobalHelpers.BaseActivity"/>
+
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".MainActivity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
+
         <activity
-            android:name=".Activity.CoronaSpreadData"
+            android:name=".VendorActivity.VendorActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
+            android:theme="@style/MaterialTheme" />
+
         <activity
-            android:name=".Activity.Precaution"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Model.VendorData"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Activity.VendorActivity"
+            android:name=".SignUpActivity.SignUp"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".Activity.SignUp"
-            android:screenOrientation="portrait"
-            android:theme="@style/MaterialTheme" />
-        <activity
-            android:name=".Activity.SplashActivity"
+            android:name=".SplashActiviy.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1">
             <intent-filter>

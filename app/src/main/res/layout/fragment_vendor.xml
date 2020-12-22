@@ -18,40 +18,40 @@
         android:layout_marginRight="16dp">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Shop Name"
-        app:errorEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/shopName"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:singleLine="true"
-            android:textSize="16dp" />
+            android:hint="Shop Name"
+            app:errorEnabled="true">
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-            <Spinner
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shopNameFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/shopCategory"
-                android:layout_gravity="center"/>
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textSize="16dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/state"
+            android:id="@+id/shopCategoryFrag"
             android:layout_gravity="center"/>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/city"
+            android:id="@+id/stateFrag"
+            android:layout_gravity="center"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cityFrag"
             android:layout_gravity="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +62,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address"
+                android:id="@+id/addressFrag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:importantForAutofill="no"
@@ -71,31 +71,31 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opening Time"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_gravity="center"/>
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Closing Time"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_weight="1"
-            android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opening Time"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_gravity="center"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Closing Time"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,28 +105,28 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/opening"
+                android:id="@+id/openingFrag"
                 android:layout_gravity="center"
                 android:layout_weight="1"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/openampm"
+                android:id="@+id/openampmFrag"
                 android:layout_gravity="center"
                 android:layout_weight="1"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/closing"
+                android:id="@+id/closingFrag"
                 android:layout_gravity="center"
                 android:layout_weight="1"/>
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/closeampm"
+                android:id="@+id/closeampmFrag"
                 android:layout_gravity="center"
                 android:layout_weight="1"/>
 
@@ -137,13 +137,14 @@
             android:layout_height="wrap_content"
             android:hint="Save Data"
             android:textColorHint="@android:color/white"
-            android:id="@+id/save"
+            android:id="@+id/saveFrag"
             android:layout_gravity="center" />
 
     </LinearLayout>
 
 
     <include
+        android:id="@+id/vendorBottomNav"
         layout="@layout/bottomnav2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
