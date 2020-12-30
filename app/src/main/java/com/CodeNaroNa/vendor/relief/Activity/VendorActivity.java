@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.CodeNaroNa.vendor.relief.Model.VendorData;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +47,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
     private String[] ampm={"Select","AM","PM"};
     private ArrayList<String> cc,ss;
     private ArrayAdapter<String> spct,tm,am,ssss,cccc;
+    private RelativeLayout parentLayout ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +128,8 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
                         }
                         else if (task.isCanceled())
                         {
-                            Toast.makeText(VendorActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(VendorActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(parentLayout,"Error",Snackbar.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -313,6 +317,7 @@ public class VendorActivity extends AppCompatActivity implements AdapterView.OnI
         closeampm=findViewById(R.id.closeampm);
         datab=findViewById(R.id.dataB);
         prec=findViewById(R.id.prec);
+        parentLayout = findViewById(R.id.vendor_activity_parent_layout);
     }
 
     @Override

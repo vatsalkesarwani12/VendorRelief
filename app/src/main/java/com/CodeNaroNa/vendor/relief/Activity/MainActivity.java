@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.CodeNaroNa.vendor.relief.Model.UserData;
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button Get;
     private ImageView pre,vendor,spreaddata;
     private Dialog loadingDialog;
+    private RelativeLayout parentLay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,8 +176,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 mAdapter.notifyDataSetChanged();
                             }
                             mAdapter.notifyDataSetChanged();
-                            if (task.getResult().size() == 0)
-                                Toast.makeText(MainActivity.this, "No Vendor Found", Toast.LENGTH_SHORT).show();
+                            if (task.getResult().size() == 0) {
+                                // Toast.makeText(MainActivity.this, "No Vendor Found", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(parentLay,"No Vendor Found",Snackbar.LENGTH_SHORT).show();
+                            }
+
                         } else {
                             Log.d("FAILURE", "Error getting documents: ", task.getException());
                         }
@@ -257,6 +263,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spreaddata=findViewById(R.id.data);
         vendor=findViewById(R.id.vendor);
         category=findViewById(R.id.ucategory);
+        parentLay = findViewById(R.id.main_activity_parent_layout);
 
 
         city.setOnItemSelectedListener(this);

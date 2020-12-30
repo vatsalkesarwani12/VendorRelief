@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.CodeNaroNa.vendor.relief.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
@@ -42,6 +44,7 @@ public class SignUp extends AppCompatActivity {
     private Map<String ,Object> dd;
     private RadioGroup userselected;
     private RadioButton selection;
+    private RelativeLayout parentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +112,7 @@ public class SignUp extends AppCompatActivity {
                             int selectedId = userselected.getCheckedRadioButtonId();
                             selection = (RadioButton) findViewById(selectedId);
                             Toast.makeText(getApplicationContext(),selection.getText().toString(),Toast.LENGTH_SHORT).show();
+
                             if (selection.getText().toString().equals("New User")) {
                                 dd.put("Phone Number",mAuth.getCurrentUser().getPhoneNumber());
                                 dd.put("Shop Name","");
@@ -136,7 +140,9 @@ public class SignUp extends AppCompatActivity {
                                 }
                         }
                         else {
-                            Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Snackbar.make(parentLayout,task.getException().getMessage(),Snackbar.LENGTH_SHORT).show();
+
                         }
                     }
                 });
@@ -148,11 +154,14 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                         Toast.makeText(SignUp.this, "Enter OTP", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                        Toast.makeText(SignUp.this, "Cannot create Account "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(SignUp.this, "Cannot create Account "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Snackbar.make(parentLayout,"Cannot create Account "+e.getMessage(),Snackbar.LENGTH_SHORT).show();
+
                         Log.e("Error",e.getMessage());
                     }
                     @Override
@@ -173,6 +182,7 @@ public class SignUp extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         db=FirebaseFirestore.getInstance();
         fabpop=findViewById(R.id.fabpop);
+        parentLayout = findViewById(R.id.sign_up_parent_layout);
         db=FirebaseFirestore.getInstance();
         userselected=findViewById(R.id.userSelected);
         dd=new HashMap<>();
@@ -194,7 +204,9 @@ public class SignUp extends AppCompatActivity {
         if (userselected.getCheckedRadioButtonId()!=R.id.newUser && userselected.getCheckedRadioButtonId()!=R.id.ExistingUser)
         {
             gen.setError("");
-            Toast.makeText(this, "Select user", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Select user", Toast.LENGTH_SHORT).show();
+            Snackbar.make(parentLayout,"Select user",Snackbar.LENGTH_SHORT).show();
+
             return false;
         }
         return true;
