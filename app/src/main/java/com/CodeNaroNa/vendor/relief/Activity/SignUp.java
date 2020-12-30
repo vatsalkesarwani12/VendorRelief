@@ -111,7 +111,7 @@ public class SignUp extends AppCompatActivity {
                             //Toast.makeText(SignUp.this, "Sign In Successful", Toast.LENGTH_SHORT).show();
                             int selectedId = userselected.getCheckedRadioButtonId();
                             selection = (RadioButton) findViewById(selectedId);
-                            Toast.makeText(getApplicationContext(),selection.getText().toString(),Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),selection.getText().toString(),Toast.LENGTH_SHORT).show();
 
                             if (selection.getText().toString().equals("New User")) {
                                 dd.put("Phone Number",mAuth.getCurrentUser().getPhoneNumber());
