@@ -4,10 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -47,18 +51,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private UserAdapter mAdapter;
     private Button Get;
     private ImageView pre,vendor,spreaddata;
+    private Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         initialiseView();
         Get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkDetail())
                 {
-                    recycleData();
+                    showLoadingDialogWithRecycleData();
+
                 }
             }
         });
@@ -106,6 +114,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onBackPressed();
         finishAffinity();
         finish();
+    }
+
+    private void showLoadingDialogWithRecycleData(){
+
+        loadingDialog = new Dialog(this);
+        loadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        loadingDialog.setCancelable(false);
+        loadingDialog.setContentView(R.layout.loading_layout);
+        loadingDialog.show();
+
+        new CountDownTimer(2000, 1000) {
+            public void onFinish() {
+                recycleData();
+                loadingDialog.dismiss();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
+
     }
 
     private void recycleData() {
