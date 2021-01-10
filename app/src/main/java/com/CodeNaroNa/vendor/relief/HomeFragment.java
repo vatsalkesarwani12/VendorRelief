@@ -226,9 +226,9 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemSelected
         mAuth= FirebaseAuth.getInstance();
         mrecyclerView=view.findViewById(R.id.recycle);
         sign=view.findViewById(R.id.sign);
-        pre=view.findViewById(R.id.pre);
-        spreaddata=view.findViewById(R.id.data);
-        vendor=view.findViewById(R.id.vendor);
+//        pre=view.findViewById(R.id.pre);
+//        spreaddata=view.findViewById(R.id.data);
+//        vendor=view.findViewById(R.id.vendor);
         category=view.findViewById(R.id.ucategory);
 
 
