@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Vendor Relief</string>
     <string name="enter_your_phone_number">Enter your phone Number</string>
+    <string name="check_internet">Please check your Internet connection</string>
+    <string name="vendor">Vendor</string>
+    <string name="spread_data">Spread Data</string>
+    <string name="precaution">Precaution</string>
+
 </resources>
